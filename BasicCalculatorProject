@@ -1,0 +1,131 @@
+//*****************************************//
+// Basic Integer Calculator				         //
+//										                     //
+// Copyright 2014 Britney Smith			       //
+//										                     //
+// This program performs basic operations  //
+// on two integers.						             //
+//*****************************************//
+
+/*
+Notes:
+
+	No license granted. Distribution, modification, and sublicensing forbidden.
+	Release with open source license available upon request.
+
+*/
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main ()
+{
+	double num1, num2;
+	int x, y, selection, solution, solutionRemainder;
+	
+	cout << "This program can be used as a calculator." << endl;
+	cout << "Enter two integers and press ENTER. \nIf the operands entered or the calculated solution are not integers, \nthe program will end." << "\n";
+	cin >> num1 >> num2;
+	cout << "The numbers you have entered are "<< num1 <<" and "<< num2 <<"." << "\n";
+
+	x = static_cast<int> (num1);
+	y = static_cast<int> (num2);
+
+	if (num1 != x && num2 == y)
+	{
+		cout << ""<< num1 <<" is not an integer. Program will end." << endl;
+		return 0;
+	}
+	if (num2 != y && num1 == x)
+	{ 
+		cout << ""<< num2 <<" is not an integer. Program will end." << endl;
+		return 0;
+	}
+	if (num1 != x && num2 != y)
+	{
+		cout << ""<< num1 <<" and "<< num2 <<" are not integers. Program will end." << endl;
+		return 0;
+	}
+
+
+	cout << "To add these numbers, press 1." << "\n"; 
+	cout << "To subtract the second number from the first number, press 2." << "\n";
+	cout << "To subtract the first number from the second number, press 3." << "\n";
+	cout << "To multiply these numbers, press 4." << "\n";
+	cout << "To divide the first number by the second number, press 5." << "\n";
+	cout << "To divide the second number by the first number, press 6." << "\n";
+				
+
+	cin >> selection;
+
+	switch (selection)
+	{
+	case 0:
+		cout << "Invalid option." << endl;
+		break;
+
+	case 1:
+		solution = x + y;
+		cout << ""<< x <<" + "<< y <<" = "<< solution <<"" << endl;
+		break;
+
+	case 2: 
+		solution = x - y;
+		cout << ""<< x <<" - "<< y <<" = "<< solution <<"" << endl;
+		break;
+
+	case 3:
+		solution = y - x;
+		cout << ""<< y <<" - "<< x <<" = "<< solution <<"" << endl;
+		break;
+
+	case 4:
+		solution = x * y;
+		cout << ""<< x <<" * "<< y <<" = "<< solution <<"" << endl;
+		break;
+
+	case 5:
+		if (y == 0)
+		{
+			cout << "The quotient of "<< x <<" / "<< y <<" is undefined. Program will end." << endl;
+			return 0;
+		}
+		else if (y > x)
+		{
+			cout << "The quotient of "<< x <<" / "<< y <<" is not an integer. Program will end." << endl;
+			return 0;
+		}
+		else
+		{
+			solution = x / y;
+			solutionRemainder = x % y;
+			cout << ""<< x <<" / "<< y <<" = "<< solution <<" with a remainder of "<< solutionRemainder <<"" << endl;
+			break;
+		}
+
+	case 6:
+		if (x == 0)
+		{
+			cout << "The quotient of "<< y <<" / "<< x <<" is undefined. Program will end." << endl;
+			return 0;
+		}
+		else if (x > y)
+		{
+			cout << "The quotient of "<< y <<" / "<< x <<" is not an integer. Program will end." << endl;
+			return 0;
+		}
+		else
+		{
+			solution = y / x;
+			solutionRemainder = y % x;
+			cout << ""<< y <<" / "<< x <<" = "<< solution <<" with a remainder of "<< solutionRemainder <<"" << endl;
+			break;
+		}
+	default:
+		cout << "Invalid option." << endl;
+	}
+
+	return 0;
+}
