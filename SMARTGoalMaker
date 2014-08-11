@@ -1,0 +1,205 @@
+//******************************************************************//
+// SMART Goal Maker Program											                    //
+//																	                                //
+// Copyright 2014  Britney Smith								                    //
+//												         			                            //
+//																                                  //
+// Purpose: To implement the SMART method to determine if goals are //
+// viable, well thought out, complete, and achievable.			        //		
+//																                                  //
+//******************************************************************//
+
+/*
+Notes:
+
+	No license granted. Distribution, modification, and sublicensing forbidden.
+	Release with open source license available upon request.
+
+*/
+
+#include <iostream>
+
+
+using namespace std;
+
+
+int main()
+{
+	char choice1, choice2, choice3, choice4, choice5, exitChoice, enter; // y or n choice
+	int message = 0; // amount of "strikes" will determine ending message.
+
+	/******* Introduction *******/
+	cout << "****************************************************************************" << endl;
+	cout << "This program will help determine whether a particular goal is well-formed ";
+	cout <<"\nand achievable using the SMART Method. Push ENTER to begin." << endl;
+	cout << "****************************************************************************" << endl;
+	cin >> enter;
+
+	if (enter)
+	{
+		do
+		{
+		/******* Instructions *******/
+		cout << endl;
+		cout << "Ok, let's go! Honestly answer the following prompts with y or n." << endl;
+
+		/******* Prompts *******/
+		cout << endl;
+		cout << "Is your goal..." << endl;
+
+		cout << endl;
+		cout << "(S)pecific?: ";
+		cin >> choice1;
+			if (choice1 == 'n')
+			{
+				cout << "You still need to pin down exactly what you want to accomplish, ";
+				cout << "\nbut you still are headed in the right direction." << endl;
+				message = message + 1;
+				cout << message << endl;
+				cout << endl;
+			}
+			else
+			{
+				message = message + 0;
+			}
+
+		cout << "(M)easurable?: ";
+		cin >> choice2;
+			if (choice2 == 'n')
+			{
+				cout << "You still need to know how you will measure your progress towards ";
+				cout << "\nachieving this goal, even if it's just a gold star at the end of ";
+				cout << "\nthe day. That will serve as encouragement along the way." << endl;
+				message = message + 1;
+				cout << message << endl;
+				cout << endl;
+			}
+			else
+			{
+				message = message + 0;
+			}
+
+		cout << "(A)ttainable?: ";
+		cin >> choice3;
+			if (choice3 == 'n')
+			{
+				cout << "You still need to honestly assess whether this is a goal you can reach ";
+				cout << "\nbased on how well you know yourself. Make sure it's not just grasping ";
+				cout << "\nat impossible perfectionism like a dangling carrot on a stick." << endl;
+				message = message + 1;
+				cout << message << endl;
+				cout << endl;
+			}
+			else
+			{
+				message = message + 0;
+			}
+
+		cout << "(R)ealistic?: ";
+		cin >> choice4;
+			if (choice4 == 'n')
+			{
+				cout << "You still need to determine whether this is something you can reasonably ";
+				cout << "\naccomplish, not based on what you think you SHOULD be accomplishing. ";
+				cout << "\nNot everyone can walk the same path in life." << endl;
+				message = message + 1;
+				cout << message << endl;
+				cout << endl;
+			}
+			else
+			{
+				message = message + 0;
+			}
+
+		cout << "Have a (T)ime limit?: ";
+		cin >> choice5;
+			if (choice5 == 'n')
+			{
+				cout << "You still need to set a hard due date for achieving this goal. ";
+				cout << "\nOtherwise, it will be hard to measure your progress. ";
+				cout << "\nIt can also be harder to motivate yourself without a due date." << endl;
+				message = message + 1;
+				cout << message << endl;
+				cout << endl;
+			}
+			else
+			{
+				message = message + 0;
+			}
+
+		/******* Total Score Determines Message *******/
+		cout << endl;
+		switch (message)
+		{
+		case 0: 
+			{	
+				cout << "Awesome! You have a great goal which you can accomplish when you do your best." << endl;
+				cout << "Write it down on the board then have at it!" << endl;
+				break;
+			}
+		case 1: 
+			{	
+				cout << "You're so close! Just a little more tweaking and you will be finished planning your goal." << endl;
+				break;
+			}
+		case 2: 
+			{	
+				cout << "You're doing great. With just a little more effort and thought, you will be all set." << endl;
+				break;
+			}
+		case 3: 
+			{	
+				cout << "Not so bad. You're on the right track. Just take your time and think about " << endl;
+				cout << "what's missing. You'll get there." << endl;
+				break;
+			}
+		case 4: 
+			{	
+				cout << "Ok, you're onto something. Don't give up now." << endl;
+				cout << "\nTry to see the bigger picture of how " << endl;
+				cout << "you can live your best life." << endl;
+				break;
+			}
+		case 5: 
+			{	
+				cout << "We all have to start somewhere. Don't be discouraged." << endl;
+				cout << "Try to make a chart or list todetermine how you can ";
+				cout << "\nmake this goal a SMART one (get it?...hah)." << endl;
+				cout << "Maybe pray to Amida and/or Avalokitesvara about it." << endl;
+				cout << "You are never alone in the fight.";
+				cout << "\nYou can do this." << endl;
+				break;
+			}
+		}
+	
+		/******* Exit Choice *******/
+		cout << endl;
+		cout << "Want to assess a goal again? It'll be fun...: ";
+		cin >> exitChoice;
+			if (exitChoice == 'n')
+			{	
+				cout << endl;
+				cout << "****************************************************************************" << endl;
+				cout << "Ok. Hoped this helped you. Remember, you have to break through ";
+				cout << "\n\'impossible\' so you can say \"I'm possible\".";
+				cout << "\nUnfavorable chances only end by ";
+				cout << "\nconfronting them." << endl;
+				cout << "Namu Amida Bul." << endl;
+				cout << "Britney, Fighting!" << endl;
+				cout << "****************************************************************************" << endl;
+			
+				cout << endl;
+				system("PAUSE");
+
+				cout << endl;
+				return 0;
+			}
+		message = 0;
+		}
+		while (exitChoice == 'y');
+	}
+
+	cout << endl;
+	return 0;
+}
+
